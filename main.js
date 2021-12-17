@@ -25,12 +25,15 @@ if(imgLinks.length !== 0) {
     addOfInner();
 }
 
-
-
 localStorage.setItem("students", JSON.stringify(imgLinks));
 
 function addImg(){
-    if(imgLinks.includes(input.value)){
+    console.log(input.value);
+    if(input.value === ""){
+        alert.innerHTML = ("Iltimos rasm linkini yuboring!");
+        alertBox.classList.remove("d-none")
+    }
+    else if(imgLinks.includes(input.value)){
         alert.innerHTML = ("Bu rasm galeriyangizda mavjud!");
         alertBox.classList.remove("d-none")
     }
