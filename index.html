@@ -11,9 +11,34 @@
     <link rel="stylesheet" href="./main.css">
 </head>
 <body>
+    <div class="deleteBox">
+        <div class="centerDelete">
+            <div class="row w-100 d-flex justify-content-center delete-row">
+                <div class="col-12">
+                    <div class="box">
+                        <div class="noImg text-dark p-1">
+                            You don't have PICTURE yet!
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 py-4">
+                    <p class="text-danger text-center">Do you really want to delete this picture!</p>
+                </div>
+                <div class="col-6 d-flex justify-content-center">
+                    <button id="no" onclick="yesOrCancelDelete(this.id)" type="button" class="btn btn-primary">Cancel</button>
+                </div>
+                <div class="col-6 d-flex justify-content-center">
+                    <button id="yes" onclick="yesOrCancelDelete(this.id)" type="button" class="btn btn-danger">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="info-box">
         <div class="alert d-none alert-danger alert-dismissible fade show" role="alert">
-            <p class="alertText m-0 p-0">Lorem ipsum dolor sit amet.</p>
+            <p class="alertText m-0 p-0"></p>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
         <form action="">
@@ -33,6 +58,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
