@@ -1,5 +1,4 @@
 const block = document.querySelector("#row");
-const submit = document.querySelector("#button-addon2");
 const input = document.querySelector("#input");
 const alert = document.querySelector(".alertText");
 const alertBox = document.querySelector(".alert");
@@ -7,19 +6,27 @@ let inners = "";
 
 let imgLinks = JSON.parse(localStorage.getItem("imgLinks")) || [];
 
-if(imgLinks.length !== 0) {
-    for (let i of imgLinks){
+function addOfInner(){
+    inners = "";
+    for (let i in imgLinks){
         inners += `<div class="col-md-4 col-sm-6 col-xxl-3 my-img">
                     <div class="box">
-                        <div class="icon bg-light">
+                        <div onclick="deleteImg(this.id)" id="${i}" class="icon bg-light">
                             <i class="far fa-trash-alt text-danger"></i>
                         </div>
-                        <img class="img-fluid" src="${i}" alt="image1">
+                        <img class="img-fluid" src="${imgLinks[i]}" alt="Xato kiritilgan image">
                     </div>
                 </div>`
     }
     block.innerHTML = (inners);
 }
+
+if(imgLinks.length !== 0) {
+    addOfInner();
+}
+
+
+
 localStorage.setItem("students", JSON.stringify(imgLinks));
 
 function addImg(){
@@ -32,7 +39,7 @@ function addImg(){
         localStorage.setItem("imgLinks", JSON.stringify(imgLinks));
         inners += `<div class="col-md-4 col-sm-6 col-xxl-3 my-img">
                     <div class="box">
-                        <div class="icon bg-light">
+                        <div onclick="deleteImg(this.id)" id="${imgLinks.length - 1}"  class="icon bg-light">
                             <i class="far fa-trash-alt text-danger"></i>
                         </div>
                         <img class="img-fluid" src="${input.value}" alt="image1">
@@ -43,4 +50,15 @@ function addImg(){
         input.focus();
     }
 
+}
+
+function deleteImg(deletedElementId){
+    if(imgLinks.length === 0){
+        return;
+    }
+    console.log(imgLinks)
+    imgLinks.splice(deletedElementId, 1);
+    console.log(imgLinks)
+    localStorage.setItem("imgLinks", JSON.stringify(imgLinks));
+    addOfInner();
 }
