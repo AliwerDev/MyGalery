@@ -90,7 +90,7 @@ let deleteItem;
 
 function deleteImg(deletedElementId){
     deleteBox.style.display = ("flex");
-    deleteRow.innerHTML = `<div class="col-12">
+    deleteRow.innerHTML = `<div class="col-md-6 col-xxl-5 col-sm-8 d-flex justify-content-center">
                                 <div class="box-modal">
                                     <img class="img-fluid" src="${imgLinks[deletedElementId]}" alt="image1">
                                 </div>
